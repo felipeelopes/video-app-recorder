@@ -1,0 +1,28 @@
+{
+  "name": "video-app-recorder",
+  "version": "0.1.0",
+  "description": "Product videos of your web app from real screens: capture, scene generators (hook, camera tour, WhatsApp-like chat, closing), beat-synced music and two variants, rendered with HyperFrames. Also a Claude Code skill.",
+  "license": "MIT",
+  "author": "Felipe Lopes",
+  "bin": {
+    "video-app-recorder": "skill/video-app-recorder/bin/video-app-recorder.cjs"
+  },
+  "files": [
+    "skill/video-app-recorder",
+    "README.md",
+    "README.pt-BR.md",
+    "LICENSE",
+    "THIRD_PARTY.md"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "keywords": ["video", "product-video", "hyperframes", "claude-code", "skill", "screen-capture", "launch-video", "whatsapp-mockup"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipeelopes/video-app-recorder.git"
+  },
+  "scripts": {
+    "demo": "node skill/video-app-recorder/bin/video-app-recorder.cjs demo-app"
+  }
+}

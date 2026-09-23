@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Acme Bistro — Dashboard</title>
+    <style>
+      :root { --primary: #4338CA; --ink: #111827; --muted: #4B5563; --line: #E5E7EB; --a1: #06B6D4; --a2: #6366F1; --a3: #A855F7; }
+      * { box-sizing: border-box; }
+      body { margin: 0; font-family: system-ui, sans-serif; color: var(--ink); background: #F5F7FB; }
+      header { height: 64px; background: linear-gradient(90deg, #312E81, var(--primary)); color: #fff; display: flex; align-items: center; padding: 0 24px; gap: 16px; font-weight: 700; font-size: 20px; }
+      header small { font-weight: 400; opacity: 0.85; font-size: 15px; }
+      .layout { display: grid; grid-template-columns: 240px 1fr 420px; gap: 20px; padding: 20px; height: calc(100vh - 64px); }
+      nav, main, aside { background: #fff; border-radius: 18px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05); }
+      nav { padding: 18px 12px; display: grid; align-content: start; gap: 4px; }
+      nav a { padding: 11px 14px; border-radius: 10px; color: var(--ink); text-decoration: none; }
+      nav a.active { background: #EEF2FF; color: var(--primary); font-weight: 600; }
+      main { padding: 22px; display: grid; grid-template-rows: auto auto 1fr; gap: 18px; overflow: hidden; }
+      .search { display: flex; align-items: center; gap: 12px; border: 1.5px solid var(--line); border-radius: 14px; padding: 0 12px 0 18px; height: 58px; }
+      .search input { flex: 1; border: 0; outline: 0; font-size: 17px; }
+      .mic { width: 40px; height: 40px; border-radius: 50%; border: 0; background: #f1f2f4; display: grid; place-items: center; cursor: pointer; }
+      .mic.listening { background: #e0344b; box-shadow: 0 0 0 6px rgba(224, 52, 75, 0.18); }
+      .ai { border: 0; border-radius: 999px; padding: 9px 16px; background: #F3E8FF; color: var(--a2); font-weight: 600; }
+      .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+      .kpi { border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+      .kpi span { color: var(--muted); font-size: 14px; }
+      .kpi b { display: block; font-size: 28px; margin-top: 6px; }
+      .kpi em { font-style: normal; font-size: 13px; color: #0E7490; }
+      table { width: 100%; border-collapse: collapse; font-size: 15px; }
+      th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--line); }
+      th { color: var(--muted); font-weight: 600; }
+      aside { padding: 18px; display: grid; grid-template-rows: auto 1fr auto; gap: 14px; position: relative; }
+      aside::before { content: ""; position: absolute; inset: 0; border-radius: 18px; padding: 2px; background: linear-gradient(90deg, var(--a1), var(--a2), var(--a3)); -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0.8; }
+      .bot { font-weight: 700; color: var(--a2); }
+      .msg { background: #f7f8f9; border-radius: 12px; padding: 12px 14px; line-height: 1.45; font-size: 15px; }
+      .msg b { color: var(--ink); }
+      .composer { display: flex; gap: 10px; border: 1.5px solid var(--line); border-radius: 14px; padding: 10px 12px; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (!localStorage.getItem("demo-session")) location.href = "login.html";
+    </script>
+    <header>Acme Bistro <small>Downtown store</small></header>
+    <div class="layout">
+      <nav>
+        <a class="active" href="#">Dashboard</a><a href="#">Orders</a><a href="#">Menu</a><a href="#">Reservations</a><a href="#">Reviews</a><a href="#">Finance</a>
+      </nav>
+      <main>
+        <div class="search" id="search">
+          <input id="q" placeholder="Search orders, dishes, customers…" />
+          <button class="ai" id="ai-mode">✦ AI mode</button>
+          <button class="mic" id="mic" title="Speak (voice search)"><svg width="20" height="20" viewBox="0 0 24 24" fill="#5b6673"><path d="M12 14a3 3 0 003-3V5a3 3 0 10-6 0v6a3 3 0 003 3zm5-3a5 5 0 01-10 0H5a7 7 0 006 6.92V21h2v-3.08A7 7 0 0019 11z"/></svg></button>
+        </div>
+        <div class="kpis">
+          <div class="kpi" id="kpi-sales"><span>Sales today</span><b>$ 4,812</b><em>▲ 12% vs last Tuesday</em></div>
+          <div class="kpi"><span>Orders</span><b>186</b><em>▲ 9%</em></div>
+          <div class="kpi"><span>Avg. ticket</span><b>$ 25.87</b><em>▲ 3%</em></div>
+          <div class="kpi"><span>Reservations</span><b>24</b><em>▲ 6 tonight</em></div>
+        </div>
+        <table>
+          <thead><tr><th>Order</th><th>Customer</th><th>Channel</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td>#3465</td><td>Sam K.</td><td>WhatsApp</td><td>$ 31.40</td><td>In the kitchen</td></tr>
+            <tr><td>#3464</td><td>Lee M.</td><td>Website</td><td>$ 18.90</td><td>Delivered</td></tr>
+            <tr><td>#3463</td><td>Ana P.</td><td>WhatsApp</td><td>$ 44.10</td><td>On the way</td></tr>
+            <tr><td>#3462</td><td>Chris D.</td><td>Counter</td><td>$ 12.50</td><td>Delivered</td></tr>
+            <tr><td>#3461</td><td>Jo R.</td><td>WhatsApp</td><td>$ 27.00</td><td>Delivered</td></tr>
+          </tbody>
+        </table>
+      </main>
+      <aside>
+        <div class="bot">✦ Assistant</div>
+        <div style="display:grid;align-content:start;gap:10px">
+          <div class="msg">Good evening! Tuesday is running <b>12% above</b> last week. <b>Smash burger</b> leads, and it's raining: delivery usually grows about 30% tonight.</div>
+          <div class="msg">Tip: promote the <b>hot soup combo</b> on delivery until 9 pm.</div>
+        </div>
+        <div class="composer">Ask anything…</div>
+      </aside>
+    </div>
+  </body>
+</html>

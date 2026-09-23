@@ -1,0 +1,123 @@
+{
+  "slug": "acme-whats-new",
+  "lang": "en",
+  "brand": {
+    "name": "Acme",
+    "primary": "#4338CA",
+    "ink": "#111827",
+    "muted": "#4B5563",
+    "accent": ["#06B6D4", "#6366F1", "#A855F7"],
+    "logo": "assets/logo.svg"
+  },
+  "music": { "calm": true, "climax": "closing", "volume": 0.35 },
+  "sound": { "transitions": true },
+  "output": { "dir": "renders/final" },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "hook",
+      "teaser": "Something new is here…",
+      "teaserSub": "at Acme Bistro.",
+      "middle": "Simpler. Smarter.",
+      "flashes": ["capture/assets/01-dashboard.png", "capture/assets/02-voice-search.png"],
+      "headline": "Acme [[changed.]]",
+      "tagline": "Your restaurant, [[one step ahead.]]"
+    },
+    {
+      "id": "dashboard",
+      "type": "zoom",
+      "image": "capture/assets/01-dashboard.png",
+      "intro": {
+        "kicker": "New dashboard",
+        "title": "What matters, [[at a glance]].",
+        "sub": "Sales, orders and tonight's tips on one screen."
+      },
+      "beats": [
+        { "focus": [439, 241], "scale": 1.6, "ring": [302, 182, 274, 119], "callout": "Sales today vs. last week, live." },
+        { "focus": [1405, 135], "scale": 2.2, "ring": [1385, 115, 40, 40], "callout": "No time to type? Search by voice." },
+        { "focus": [1690, 330], "scale": 1.3, "ring": [1480, 84, 420, 330], "callout": "The assistant reads the weather and suggests what to push." }
+      ]
+    },
+    {
+      "id": "chat-order",
+      "type": "chat",
+      "clock": "7:32",
+      "contact": { "name": "Acme Bistro", "avatar": "assets/avatar.svg" },
+      "captions": {
+        "kicker": "Ordering on WhatsApp",
+        "title": "From menu to order, all in the chat.",
+        "sub": "Customers close the whole order in the conversation, no browser needed.",
+        "items": ["Suggestion engine: always offers one more thing", "Cart controlled by natural language", "Delivery, payment and change in the chat"],
+        "badge": "Start to finish, only on WhatsApp"
+      },
+      "messages": [
+        { "type": "date", "text": "Today", "visible": true },
+        { "from": "out", "via": "typed", "text": "Hi! One smash burger please", "time": "7:30" },
+        {
+          "from": "in",
+          "text": "Added 1x *Smash burger* — $ 14.00.\n\nIt's 55°F and raining here tonight: a hot *Tomato soup* goes great with it. Want me to add one?",
+          "time": "7:30",
+          "buttons": ["Yes, add it", "No, thanks"],
+          "focus": { "label": "Smart suggestion", "text": "Even the local weather counts" },
+          "reveal": 0
+        },
+        { "from": "out", "via": "typed", "text": "Add the soup and a lemonade", "time": "7:31", "reveal": 1 },
+        { "from": "in", "text": "Done! 1x Smash burger, 1x Tomato soup, 1x Lemonade.\n*Total: $ 26.50*\n\nDelivery or pickup?", "time": "7:31", "buttons": ["Delivery", "Pickup"] },
+        { "from": "out", "via": "tap", "text": "Delivery", "quote": true, "time": "7:31" },
+        { "from": "in", "text": "Delivering to your saved address. How would you like to pay?", "time": "7:31", "buttons": ["Cash", "Card on delivery"] },
+        { "from": "out", "via": "tap", "text": "Cash", "quote": true, "time": "7:32", "reveal": 2 },
+        { "from": "in", "text": "Order *#3465* confirmed! Ready in about 30 min. Enjoy!", "time": "7:32", "notify": true, "reveal": "badge" }
+      ]
+    },
+    {
+      "id": "chat-reservation",
+      "type": "chat",
+      "clock": "7:35",
+      "contact": { "name": "Acme Bistro", "avatar": "assets/avatar.svg" },
+      "captions": {
+        "kicker": "Reservations on WhatsApp",
+        "title": "Book a table without leaving the chat.",
+        "sub": "A native WhatsApp form, filled in seconds.",
+        "items": ["Area, date and time with one tap", "Party size and accessibility noted", "Instant confirmation and a reminder"]
+      },
+      "messages": [
+        { "type": "date", "text": "Today", "visible": true },
+        { "from": "out", "text": "Hi! I'd like to book a table.", "time": "7:34" },
+        { "from": "in", "text": "Sure! Opening the booking form for you.", "time": "7:34" },
+        { "from": "in", "card": { "title": "Book a table", "body": "Choose the area, date and time and confirm.", "button": "Book now" }, "time": "7:34" },
+        {
+          "type": "sheet",
+          "tap": true,
+          "reveal": 0,
+          "screens": [
+            { "title": "Area", "progress": 0.3, "options": [{ "title": "Main hall", "desc": "Cozy, great for dinners with family or friends." }, { "title": "Terrace", "desc": "Outdoors, by the garden." }, { "title": "Kids corner", "desc": "Next to the play area." }], "choose": 0 },
+            { "title": "Booking details", "progress": 0.95, "heading": "Main hall — Tonight", "fields": [{ "label": "Time", "value": "8:30 pm" }, { "label": "Name", "value": "Sam" }, { "label": "People", "value": "6" }], "checks": [{ "label": "Wheelchair access", "checked": true }, { "label": "Kids coming along" }], "note": "Late arrival tolerance: 15 minutes", "cta": "Confirm booking", "reveal": 1 }
+          ]
+        },
+        { "from": "out", "formReply": "Book now", "formReplySub": "Response sent.", "time": "7:35" },
+        { "from": "in", "text": "Your table is booked!\nTrack it here: https://example.com/r/8XK2\nWe'll send a reminder before your time.", "time": "7:35", "buttons": ["See status", "Cancel booking"], "notify": true, "reveal": 2 }
+      ]
+    },
+    {
+      "id": "closing",
+      "type": "closing",
+      "tagline": "Your restaurant, one step ahead.",
+      "sub": "With your [[assistant]] by your side, every day.",
+      "url": "www.example.com",
+      "highlight": "example"
+    }
+  ],
+  "variants": {
+    "soon": {
+      "scenes": {
+        "hook": { "teaser": "Coming soon…", "teaserSub": "to Acme Bistro.", "middle": "Are you ready for the\n[[new]] Acme?" },
+        "closing": { "badge": "Coming soon" }
+      }
+    },
+    "launch": {
+      "scenes": {
+        "hook": { "teaser": "It's here…", "teaserSub": "the new Acme." }
+      }
+    }
+  }
+}

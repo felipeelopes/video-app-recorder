@@ -1,0 +1,55 @@
+{
+  "slug": "my-app-whats-new",
+  "lang": "en",
+  "brand": {
+    "name": "My App",
+    "primary": "#2563eb",
+    "ink": "#111827",
+    "muted": "#4B5563",
+    "accent": ["#06B6D4", "#6366F1", "#A855F7"],
+    "logo": null
+  },
+  "music": { "calm": true, "climax": "closing", "volume": 0.35 },
+  "sound": { "transitions": true },
+  "output": { "dir": "renders/final" },
+  "scenes": [
+    {
+      "id": "hook",
+      "type": "hook",
+      "teaser": "Something new is here…",
+      "teaserSub": "in My App.",
+      "middle": "Simpler. Smarter.",
+      "flashes": ["capture/assets/01-home.png"],
+      "headline": "My App [[changed.]]",
+      "tagline": "Your work, [[one step ahead.]]"
+    },
+    {
+      "id": "home",
+      "type": "zoom",
+      "image": "capture/assets/01-home.png",
+      "intro": { "kicker": "New home", "title": "Everything that matters, [[at a glance]].", "sub": "One sentence about the value, with a real number from the screen." },
+      "beats": [
+        { "focus": [960, 400], "scale": 1.4, "ring": [760, 300, 400, 200], "callout": "Name the benefit, not the button." }
+      ]
+    },
+    {
+      "id": "closing",
+      "type": "closing",
+      "tagline": "Your work, one step ahead.",
+      "sub": "With [[My App]] by your side, every day.",
+      "url": "www.example.com",
+      "highlight": "example"
+    }
+  ],
+  "variants": {
+    "soon": {
+      "scenes": {
+        "hook": { "teaser": "Coming soon…", "middle": "Are you ready for the\n[[new]] My App?" },
+        "closing": { "badge": "Coming soon" }
+      }
+    },
+    "launch": {
+      "scenes": { "hook": { "teaser": "It's here…" } }
+    }
+  }
+}

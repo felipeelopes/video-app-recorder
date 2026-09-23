@@ -1,0 +1,42 @@
+{
+  "base": "http://localhost:8080",
+  "viewport": { "width": 1920, "height": 1080, "scale": 1 },
+  "login": {
+    "check": "/index.html",
+    "loginUrlPattern": "login",
+    "steps": [
+      { "fill": "#email", "value": "${env:DEMO_USER}" },
+      { "fill": "#password", "value": "${env:DEMO_PASSWORD}" },
+      { "click": "button[type=submit]" }
+    ]
+  },
+  "shots": [
+    {
+      "name": "01-dashboard",
+      "route": "/index.html",
+      "waitFor": ".kpis",
+      "delay": 800,
+      "description": "Dashboard: sales KPIs, latest orders and the assistant panel with tonight's tips",
+      "steps": [
+        {
+          "js": "const r = (s) => { const b = document.querySelector(s).getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; }; return { kpi: r('#kpi-sales'), search: r('#search'), mic: r('#mic'), assistant: r('aside') };",
+          "measure": "regions",
+          "pause": 300
+        }
+      ]
+    },
+    {
+      "name": "02-voice-search",
+      "route": "/index.html",
+      "waitFor": "#mic",
+      "delay": 600,
+      "record": 2,
+      "description": "Search in AI mode with voice: the query is typed and the microphone turns to listening",
+      "steps": [
+        { "click": "#ai-mode", "pause": 400 },
+        { "type": "#q", "text": "orders from WhatsApp today", "pause": 500 },
+        { "js": "document.querySelector('#mic').classList.add('listening');", "pause": 600 }
+      ]
+    }
+  ]
+}

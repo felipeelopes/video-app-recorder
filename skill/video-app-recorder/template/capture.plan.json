@@ -1,0 +1,32 @@
+{
+  "base": "http://localhost:3000",
+  "viewport": { "width": 1920, "height": 1080, "scale": 1 },
+  "login": {
+    "check": "/",
+    "loginUrlPattern": "login|signin",
+    "steps": [
+      { "fill": "input[type=email]", "value": "${env:APP_USER}" },
+      { "fill": "input[type=password]", "value": "${env:APP_PASSWORD}" },
+      { "click": "button[type=submit]" }
+    ],
+    "captchaSelector": null
+  },
+  "state": {},
+  "beforeEach": [],
+  "shots": [
+    {
+      "name": "01-home",
+      "route": "/",
+      "waitFor": "body",
+      "delay": 1500,
+      "description": "Home screen of the app",
+      "steps": [
+        {
+          "js": "const r = (s) => { const e = document.querySelector(s); if (!e) return null; const b = e.getBoundingClientRect(); return [Math.round(b.x), Math.round(b.y), Math.round(b.width), Math.round(b.height)]; }; return { main: r('main') };",
+          "measure": "regions",
+          "pause": 300
+        }
+      ]
+    }
+  ]
+}

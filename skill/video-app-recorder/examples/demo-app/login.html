@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Acme Bistro — Sign in</title>
+    <style>
+      body { margin: 0; height: 100vh; display: grid; place-items: center; font-family: system-ui, sans-serif; background: #F5F7FB; color: #111827; }
+      form { width: 380px; padding: 36px; border-radius: 20px; background: #fff; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08); display: grid; gap: 14px; }
+      h1 { margin: 0 0 8px; font-size: 24px; }
+      input { height: 46px; border: 1px solid #d0d4d9; border-radius: 10px; padding: 0 14px; font-size: 16px; }
+      button { height: 48px; border: 0; border-radius: 10px; background: #4338CA; color: #fff; font-size: 16px; font-weight: 600; cursor: pointer; }
+    </style>
+  </head>
+  <body>
+    <form id="login">
+      <h1>Acme Bistro</h1>
+      <input id="email" type="email" placeholder="E-mail" required />
+      <input id="password" type="password" placeholder="Password" required />
+      <button type="submit">Sign in</button>
+    </form>
+    <script>
+      // Demo only: any non-empty credentials open a local session.
+      document.getElementById("login").addEventListener("submit", (e) => {
+        e.preventDefault();
+        localStorage.setItem("demo-session", "1");
+        location.href = "index.html";
+      });
+    </script>
+  </body>
+</html>

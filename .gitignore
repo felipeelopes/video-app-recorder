@@ -1,0 +1,12 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+# Generated inside video projects
+renders/
+.build/
+capture/
+assets/bgm.*
+assets/sfx/
+assets/fonts/
+snapshots/
