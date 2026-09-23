@@ -2,6 +2,7 @@
 
 ## Contents
 
+- [Discovery & Quality of Life Framing](#discovery--quality-of-life-framing)
 - [Capture plan](#capture-plan)
 - [Config](#config)
 - [Scene types](#scene-types)
@@ -9,6 +10,15 @@
 - [Variants](#variants)
 - [Music and sound](#music-and-sound)
 - [Pitfalls](#pitfalls)
+
+## Discovery & Quality of Life Framing
+
+Before generating configs or captures, ground the project in human value:
+1. **System Objective:** Understand what the system achieves and its fundamental mission.
+2. **Personas:** Identify who the users are, their daily working context, and moments of vulnerability/stress.
+3. **Problems to be Solved:** Catalogue the exact manual bottlenecks, lost data, or mental clutter they face.
+4. **Quality of Life Uplift:** Map each featured screen directly to a human relief (peace of mind, saved hours, zero friction, certainty).
+5. **In-App Motion Focus:** Showcase real interface movements (clicks, state updates, live counters) directly inside the app, making the software itself the undisputed hero.
 
 ## Capture plan
 

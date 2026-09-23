@@ -19,12 +19,15 @@ what's-new video of our dashboard and WhatsApp ordering"* into rendered MP4s, us
 
 ## What it does
 
+- **Discovers System Objective, Personas & Quality of Life:** Grounds every video in the product's true
+  mission, user personas, real pain points, and the features that directly elevate the user's quality of life.
+- **In-App Motion & Action Focus:** Keeps the spotlight on the actual software and internal UI movements
+  (clicks, state changes, active workflows) rather than static decorative wrappers.
 - **Captures real screens** of your app running locally: login from environment variables, declarative
   steps (click, fill, type, JS), PNG + H.264 recordings and measured coordinates of every region to highlight.
 - **Generates the scenes** from one `video.config.json`: a mystery `hook`, a camera `zoom` tour with rings
-  and callouts, a WhatsApp-like phone `chat` (typing indicator, composer typing, button taps, quotes,
-  Flow-style cards and form sheets, a camera focus on the smartest message), a `closing` with your
-  website typed letter by letter, and `custom` HyperFrames compositions.
+  and callouts, a phone `chat` (only for apps with verified conversational flows), a `closing` with your
+  verified website typed letter by letter, and `custom` HyperFrames compositions.
 - **Two variants** from the same body: *coming soon* (announce now) and *launch* (release day).
 - **Music on the beat**: extends a track you pick by cutting only on bar lines (the drop lands on the
   reveal and on the climax), or an original calm synth bed; sound effects placed automatically.

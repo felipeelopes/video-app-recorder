@@ -22,18 +22,26 @@ Always render two variants when announcing: **soon** (teaser: "Coming soon…", 
 - An accent trio (default cyan → indigo → purple) for everything "smart": rings, gradients, badges,
   focus labels. Never paint the smart features with the brand primary.
 - One font family (Noto Sans by default), bold titles with tight tracking, medium sub lines.
+- **In-App Interface as Hero:** Keep the app or website front and center. Avoid excessive decorative
+  margins or static external frames that shrink the product. The viewer must see the actual UI
+  working to solve their problem.
 - Real screens inside the frame; cropping, zoom, rings and callouts on top. Rebuild UI in HTML only
   when it must move and cannot be recorded (the phone chat is the typical case).
 
 ## Motion
 
+- **Motion inside the app:** Highlight movements, state changes, and interactions that happen
+  *within* the app (taps, inputs, active timers, live metrics, smooth list updates).
 - Between scenes: fades (the generators fade every scene in). No hard cuts, no whip zooms, no flashes.
 - Inside scenes: a slow camera (`power3.inOut`), dissolves with a touch of blur, rings that fade in.
-- Zoom on a button: measure its box, use scale 2–2.4, keep it in view ≥ 2 s.
+- Zoom on a button or control: measure its box, use scale 2–2.4, keep it in view ≥ 2 s.
 - Give the viewer time: 3.5 s on the first new screen, ≥ 3 s still on any result with numbers.
 
 ## Words
 
+- **Quality of Life First:** Frame every scene around how the feature removes stress, saves precious
+  time, or brings calm and control to the persona's life (e.g. "Peace of mind during the 3 AM rush"
+  instead of "Contraction database table").
 - One message for the whole video; every caption serves it.
 - Benefit first ("No time to type? Search by voice."), then the proof (a real number or the real flow).
 - Captions describe what is on screen. Vague slogans ("the whole screen feels it") were rejected.

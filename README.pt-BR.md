@@ -1,11 +1,12 @@
 # video-app-recorder
 
-**Vídeos de produto do seu web app, montados por um agente de IA a partir de telas reais.**
+**Vídeos de produto do seu web app, focados nas features que melhoram a qualidade de vida do usuário a partir de movimentos reais na própria aplicação.**
 
-CLI e skill para agentes (Claude Code, Codex, Cursor) que transformam um pedido como *"vídeo de 90 s
-das novidades do dashboard e do pedido pelo WhatsApp"* em MP4s renderizados com o
-[HyperFrames](https://github.com/heygen-com/hyperframes) (HTML → vídeo). Detalhes completos no
-[README em inglês](README.md).
+CLI e skill para agentes (Claude Code, Codex, Cursor, Antigravity) que transformam um pedido em MP4s
+renderizados com o [HyperFrames](https://github.com/heygen-com/hyperframes) (HTML → vídeo).
+Antes de gravar ou roteirizar, a skill entende o objetivo do sistema, define personas, lista as dores
+resolvidas e dá foco absoluto aos movimentos internos do app que aumentam a qualidade de vida do usuário.
+Detalhes completos no [README em inglês](README.md).
 
 ## 1. Dependências
 
