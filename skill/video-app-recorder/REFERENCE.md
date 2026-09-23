@@ -65,9 +65,9 @@ lines; long text switches to a smaller two-line layout), `flashes` (up to 3 blur
 `beats[]` `{ focus: [x, y], scale, ring: [x, y, w, h], callout, hold }`. The camera puts `focus` near the
 center (above the callout) and is clamped so the screenshot always covers the frame.
 
-**chat**: phone with a WhatsApp-like dark chat; see [Chat conversation](#chat-conversation).
+**chat**: phone with a WhatsApp-like dark chat; see [Chat conversation](#chat-conversation). **Caution:** Only use this scene type when the product under demo actually possesses a conversational chat flow or WhatsApp integration. Never include chat for products that lack it or that exist to replace chat.
 
-**closing** (8 s): `logo`, `brand`, `tagline`, `sub`, `url` (typed with a blinking cursor),
+**closing** (8 s): `logo`, `brand`, `tagline`, `sub`, `url` (typed with a blinking cursor; must be the real, verified product URL),
 `highlight` (part of the URL in the gradient), `badge` (e.g. "Coming soon").
 
 **custom**: `src` (a HyperFrames composition you wrote), `duration`, optional `cues`. Use it for
@@ -127,6 +127,11 @@ last message), `captions` `{ kicker, title, sub, items[], badge }`, `messages[]`
 
 ## Pitfalls
 
+- **Inventing features, chat flows or channels.** Never guess or hallucinate features. Always inspect
+  repository docs (`PRODUCT.md`, `README.md`, routes) first. If the app has no chat/WhatsApp capability,
+  use `zoom` tours of real screens or custom scenes. Never simulate a chat if the app replaces chat!
+- **Placeholder URLs.** Never leave `www.example.com` or make up unverified domains in `closing.url`.
+  Retrieve the real domain from the project's config, repo, or ask the user.
 - **Production by accident.** Point `base` at localhost or a staging host with demo data. Check how the
   app decides its environment before starting it (a wrong profile can connect to production services).
 - **Captcha.** Never automate it. `--headed`, a human solves it, the profile keeps the session.

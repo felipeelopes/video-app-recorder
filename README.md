@@ -76,7 +76,8 @@ the place each agent reads skills from:
 video-app-recorder install-skill --for claude            # ~/.claude/skills/video-app-recorder
 video-app-recorder install-skill --for codex             # ~/.codex/skills/video-app-recorder
 video-app-recorder install-skill --for cursor            # ~/.cursor/skills/video-app-recorder
-video-app-recorder install-skill --for agents            # ~/.agents/skills (read by Codex and Cursor)
+video-app-recorder install-skill --for antigravity       # ~/.gemini/config/skills/video-app-recorder
+video-app-recorder install-skill --for agents            # ~/.agents/skills (read by Codex, Cursor, Antigravity)
 video-app-recorder install-skill --for claude,cursor --project .   # inside the current repo instead
 ```
 
@@ -93,6 +94,13 @@ command after updating the package to refresh the copy.
   /video-app-recorder a 60s what's-new video of our dashboard and WhatsApp ordering, for LinkedIn
   ```
 - Claude asks before long or costly steps (render) and before anything that needs your credentials.
+
+### Antigravity
+
+- **Install:** `video-app-recorder install-skill --for antigravity` (global, in `~/.gemini/config/skills/`).
+- **Use:** Ask the agent for a product video or run `/video-app-recorder`. The skill automatically investigates
+  the codebase first (`PRODUCT.md`, `README.md`, routes, brand assets, real website URL) to avoid hallucinated
+  features or fake chat flows.
 
 ### Codex
 

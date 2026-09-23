@@ -84,6 +84,8 @@ const SKILL_TARGETS = {
   codex: { user: [".codex", "skills"], project: [".agents", "skills"] },
   cursor: { user: [".cursor", "skills"], project: [".cursor", "skills"] },
   agents: { user: [".agents", "skills"], project: [".agents", "skills"] },
+  antigravity: { user: [".gemini", "config", "skills"], project: [".agents", "skills"] },
+  gemini: { user: [".gemini", "config", "skills"], project: [".agents", "skills"] },
 };
 
 function installSkill() {
@@ -92,7 +94,7 @@ function installSkill() {
   for (const name of names) {
     const t = SKILL_TARGETS[name];
     if (!t) {
-      console.error(`[video-app-recorder] unknown target "${name}" (claude, codex, cursor, agents)`);
+      console.error(`[video-app-recorder] unknown target "${name}" (claude, codex, cursor, agents, antigravity, gemini)`);
       process.exit(2);
     }
     const base = has("project") ? path.resolve(val("project", process.cwd())) : os.homedir();

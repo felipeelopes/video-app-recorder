@@ -32,9 +32,10 @@ video-app-recorder help
 ## 3. Instalar a skill no agente
 
 ```bash
-video-app-recorder install-skill --for claude     # ~/.claude/skills
-video-app-recorder install-skill --for codex      # ~/.codex/skills
-video-app-recorder install-skill --for cursor     # ~/.cursor/skills
+video-app-recorder install-skill --for claude          # ~/.claude/skills
+video-app-recorder install-skill --for codex           # ~/.codex/skills
+video-app-recorder install-skill --for cursor          # ~/.cursor/skills
+video-app-recorder install-skill --for antigravity     # ~/.gemini/config/skills
 video-app-recorder install-skill --for claude,cursor --project .   # dentro do repositório
 ```
 
@@ -42,6 +43,8 @@ Reinicie o agente depois de instalar.
 
 - **Claude Code:** `/video-app-recorder vídeo de 60 s das novidades do dashboard, para o LinkedIn`
   (ou só peça um vídeo de produto; a skill é escolhida pela descrição).
+- **Antigravity:** peça ao agente um vídeo do produto ou use `/video-app-recorder`. A skill investiga
+  o repositório antes (`PRODUCT.md`, `README.md`, rotas, site real) para não inventar telas ou chats inexistentes.
 - **Codex:** `$video-app-recorder vídeo de em breve e de lançamento da nova reserva`. Captura e render
   abrem o Chrome e acessam `localhost`/npm/CDN: aprove quando o Codex pedir ou libere rede em
   `~/.codex/config.toml` (`[sandbox_workspace_write]` `network_access = true`).

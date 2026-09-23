@@ -9,9 +9,9 @@ rounds with the product owner. These are the rules that survived.
 |---|---|---|---|
 | 1 | `hook` | 8 s | Mystery: dark stage, text typed letter by letter, blurred glimpses of screens, a question, then a bloom reveals "App **changed.**" and the tagline. |
 | 2 | `zoom` × N | 10–16 s each | One screen per scene: intro card with the benefit, then 2–3 beats (camera, ring, callout). Hold ≥ 3 s where there is data. |
-| 3 | `chat` × N | 16–26 s each | Conversational features on a phone: order, booking, support. One `focus` on the smartest moment. |
+| 3 | `chat` × N | 16–26 s each | Conversational features on a phone (WhatsApp, messenger). ONLY use if the product actually provides a conversational/chat flow. Never add chat scenes to apps that lack them or that are built to replace chat. |
 | 4 | climax | 8–10 s | The signature visual of the product (dark stage, big motion). Music opens here. Usually a `custom` scene. |
-| 5 | `closing` | 8 s | Logo + name, tagline, one sub line with the accent word, website typed, optional badge. |
+| 5 | `closing` | 8 s | Logo + name, tagline, one sub line with the accent word, verified website typed, optional badge. |
 
 Always render two variants when announcing: **soon** (teaser: "Coming soon…", a question like
 "Are you ready for the new …?", badge "Coming soon") and **launch** (same body, "It's here…", no badge).
@@ -41,9 +41,16 @@ Always render two variants when announcing: **soon** (teaser: "Coming soon…", 
 - Product and feature names exactly as the brand writes them. Never call an AI assistant a "bot" if
   the brand does not.
 - Claims ("the only…", "official partner of…") only as the owner wrote them; ask to confirm.
+- **Real website only:** Always obtain the real domain and website from project metadata, configs,
+  or the owner. Never invent placeholder domains (`example.com`) or fake URLs.
+- **No invented features or channels:** Never assume an app has an AI chatbot, WhatsApp flow, or
+  integrations. If an app replaces WhatsApp (e.g. replaces unstructured messaging with organized
+  dashboards), highlight that it replaces scattered chats — never simulate a fake chat.
 
 ## Data
 
+- Investigate before scripting: search the app repo (`PRODUCT.md`, `README.md`, `DESIGN.md`,
+  routes, configs) to ensure every capability mentioned exists in reality.
 - Demo tenant only. Blur or replace real people's names, e-mails, phone numbers and IDs.
 - No invented metrics: every number on screen must be in a capture.
 - If the demo data is unfit for a public video (e.g. real complaints, real customers), inject demo

@@ -29,27 +29,42 @@ Do the steps in order; each has a gate.
    command for their OS (README § Requirements: winget / brew / apt, `npm install -g hyperframes`,
    `pip install numpy scipy`) instead of installing system software yourself. The app runs locally with
    demo data (development or staging, never production). Gate: the base URL answers.
-2. **Understand the request.** Slug, the ONE message, audience, length (default 60–120 s), format
-   (16:9 default), features to show and whether it needs the two variants (announce now + release
-   later). Ask once, only what cannot be inferred.
-3. **Project.** `vr init <dir>` (add `--example` to start from the demo; `vr demo-app` serves the demo app).
-4. **Capture.** Write `capture.plan.json` (REFERENCE.md § Capture plan). Credentials only through
+2. **Investigate the app and product (Anti-hallucination gate).**
+   Before planning scenes or inventing copy, thoroughly inspect the app repository and documentation
+   (`PRODUCT.md`, `README.md`, `DESIGN.md`, `package.json`, `pubspec.yaml`, route definitions, screenshots,
+   store listings, public web pages).
+   - **Discover real truth:** Extract the real product name, true purpose, verified features, brand tokens
+     (colors, typography, logo path) and the **real website/domain** (`site`, `landing page`, store links).
+     Never invent placeholder URLs like `example.com` or make up unverified domains.
+   - **Check anti-references:** Check what the app explicitly rejects or replaces (e.g., if it replaces
+     spreadsheets and WhatsApp messages, NEVER generate a WhatsApp chat scene).
+   - **Match scene types to actual capabilities:** Only use `chat` scenes if the app literally possesses
+     a conversational WhatsApp or in-app chat feature. For apps without chat, use `zoom` tours of real
+     screens or `custom` compositions. Never invent chatbots, AI features, or third-party integrations
+     that do not exist in the codebase.
+   Gate: Every feature, claim, URL and scene corresponds to verified truth from the project.
+3. **Understand the request.** Slug, the ONE message, audience, length (default 60–120 s), format
+   (16:9 default), features to highlight from the investigation, and whether it needs the two variants
+   (announce now + release later). Ask once, only what cannot be inferred.
+4. **Project.** `vr init <dir>` (add `--example` to start from the demo; `vr demo-app` serves the demo app).
+5. **Capture.** Write `capture.plan.json` (REFERENCE.md § Capture plan). Credentials only through
    environment variables referenced as `${env:NAME}`; tell the user which ones to export. Run
    `vr capture` in the project (`--only <regex>` to redo
    shots, `--headed` when a captcha appears: the user solves it, never bypass it). Measure every region
    a scene zooms into with a `measure` step. Gate: look at every PNG and at real-resolution frames of
    each `.mp4`; redo shots with leaked state, wrong popup or sensitive data.
-5. **Scenes.** Fill `video.config.json` (REFERENCE.md § Config): `hook`, one `zoom` per screen with
-   measured `focus`/`ring`, `chat` for conversational flows, `closing`, and `custom` for hand-written
-   HyperFrames compositions. Write captions as benefits with real numbers from the captures.
-6. **Build and check.** `vr build --variant <name>`, `vr check` and `vr snapshot --at <times>`; read
+6. **Scenes.** Fill `video.config.json` (REFERENCE.md § Config): `hook`, one `zoom` per screen with
+   measured `focus`/`ring`, `chat` (only for verified conversational flows), `closing`, and `custom` for
+   hand-written HyperFrames compositions. Write captions as benefits with real numbers from the captures.
+   Set `closing.url` to the verified product website.
+7. **Build and check.** `vr build --variant <name>`, `vr check` and `vr snapshot --at "<times>"`; read
    the contact sheet.
    Fix and rebuild (rebuilding is always safe: frames and index are regenerated from the config).
-7. **Music.** Ask the user to pick a track (royalty-free libraries in STYLE.md) or use the built-in
+8. **Music.** Ask the user to pick a track (royalty-free libraries in STYLE.md) or use the built-in
    calm synth (`music.calm: true`). For a track: `vr analyze-track <file>`,
    set `music.source` + `music.grid`; the build extends it on bar lines with the drop on the reveal
    and on the climax scene.
-8. **Render and deliver.** Only after the user agrees: `vr render`
+9. **Render and deliver.** Only after the user agrees: `vr render`
    renders every variant and normalizes loudness to −14 LUFS. Extract frames of the final MP4s at
    scene changes and new scenes and look at them before reporting. Report paths, duration and what
    was not verified (audio is measured, not listened to).
@@ -57,6 +72,9 @@ Do the steps in order; each has a gate.
 ## Content rules (summary of STYLE.md)
 
 - Real screens of demo data; no hidden, internal or admin-only screens.
+- **Never invent features, channels, or URLs**: no imagined WhatsApp bots, no placeholder domains
+  (`example.com`), no hallucinated integrations. Discover the real website, brand assets, and verified
+  features from the app repository before configuring scenes.
 - One message; each scene says the problem, shows the real action and ends on a real number.
 - Data-heavy moments stay still for ≥ 3 s; the first new screen for ≥ 3.5 s.
 - Smooth transitions only (fades, slow camera); captions describe what is on screen, no vague slogans.
